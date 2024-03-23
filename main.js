@@ -27,7 +27,7 @@ camera.position.x = 0; //set the camera's z position to 5
 
 
 //create an ambient light
-const ambientLight = new THREE.AmbientLight(0xffffff, 2); //ambient light, with color white and intensity 0.5
+const ambientLight = new THREE.AmbientLight(0xffffff, 10); //ambient light, with color white and intensity 0.5
 scene.add(ambientLight);
 
 /*
