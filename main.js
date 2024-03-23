@@ -2,6 +2,8 @@ import './style.css' //import the css file
 import * as THREE from 'three'; //import the three.js library
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls'; //import the orbit controls from three.js
 import { Terrain } from "./js/Terrain";
+import imgUrl from './space.jpg' //have to import the path for the image, since once we build it will be a different url
+
 
 const scene = new THREE.Scene(); //create a scene
 const camera = new THREE.PerspectiveCamera( 75, window.innerWidth / window.innerHeight, 0.1, 1000 ); //create a camera with perspective projection
@@ -22,18 +24,10 @@ camera.position.z = 10; //set the camera's z position to 5
 camera.position.x = 0; //set the camera's z position to 5
 
 
-const geometry = new THREE.BoxGeometry( 1, 1, 1 );
-const material = new THREE.MeshStandardMaterial( { color: 0x00ff00 } );
-const cube = new THREE.Mesh( geometry, material );
-scene.add( cube );
 
-//create a directional light
-const light = new THREE.DirectionalLight(0xffffff, 1); //create a directional light with color white and intensity 1
-light.position.set(5, 5, 5);
-scene.add(light);
 
 //create an ambient light
-const ambientLight = new THREE.AmbientLight(0xffffff, 1); //ambient light, with color white and intensity 0.5
+const ambientLight = new THREE.AmbientLight(0xffffff, 2); //ambient light, with color white and intensity 0.5
 scene.add(ambientLight);
 
 /*
@@ -50,8 +44,8 @@ const controls = new OrbitControls(camera, renderer.domElement); //create orbit 
 
 
 function addStar() {
-  const geometry = new THREE.SphereGeometry(Math.random() * 0.5 + 0.1, 24, 24); //create a sphere geometry with random size
-  const material = new THREE.MeshStandardMaterial({ color: 0xffffff }); //create a material with color white
+  const geometry = new THREE.OctahedronGeometry(Math.random() * 0.5 + 0.1, 0); //create a sphere geometry with random size
+  const material = new THREE.MeshStandardMaterial({ color: 0xfcf003 }); //create a material with color white
   const star = new THREE.Mesh(geometry, material); //create a mesh with geometry and material
 
   const [x, y, z] = Array(3).fill().map(() => THREE.MathUtils.randFloatSpread(100)); //create random x, y, z positions
@@ -60,17 +54,16 @@ function addStar() {
   scene.add(star); //add the star to the scene
 }
 
-Array(200).fill().forEach(addStar); //create array of 200, call to create 200 stars in the scene
+Array(500).fill().forEach(addStar); //create array of 200, call to create 200 stars in the scene
 
-const spaceTexture = new THREE.TextureLoader().load('space.jpg'); //load the space texture with a relative path
+const spaceTexture = new THREE.TextureLoader().load(imgUrl); //load the space texture with a relative path
 scene.background = spaceTexture; //set the scene's background to the space texture
 
 function moveCamera() {
   const t = document.body.getBoundingClientRect().top;
 
   camera.position.z = t * -0.01;
-  camera.position.x = t * -0.0002;
-  camera.rotation.y = t * -0.0002;
+
 }
 
 document.body.onscroll = moveCamera;
@@ -87,12 +80,29 @@ function onWindowResize(){
 
 }
 
+function animateStars() {
+  scene.traverse((object) => {
+    if (object.isMesh ) {
+      object.rotation.y += 0.01; // rotate the star around the y-axis
+      object.rotation.x += 0.02; // rotate the star around the y-axis
+      /*
+      object.position.y += Math.random() * 0.01 - 0.005; // float the star in a random direction
+      object.position.x += Math.random() * 0.01 - 0.005; // float the star in a random direction
+      object.position.z += Math.random() * 0.01 - 0.005; // float the star in a random direction
+      */
+    }
+  });
+}
+
+
 //we want to set up a recursive function to set up infinite loop to animate automatically
 function animate() {
-  requestAnimationFrame(animate); //request animation frame to animate
-  cube.rotation.x += 0.01;
-  cube.rotation.y += 0.01;
-  renderer.render(scene, camera); //render the scene with the camera
+  requestAnimationFrame(animate);
+  animateStars(); // call the animateStars function to animate the stars
+  renderer.render(scene, camera);
 }
+
+
+
 
 animate(); //call the animate function
