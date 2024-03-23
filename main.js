@@ -4,7 +4,17 @@ import * as THREE from 'three'; //import the three.js library
 const scene = new THREE.Scene();
 const camera = new THREE.PerspectiveCamera( 75, window.innerWidth / window.innerHeight, 0.1, 1000 );
 
-const renderer = new THREE.WebGLRenderer();
+const renderer = new THREE.WebGLRenderer({
+  canvas: document.querySelector('#bg'),
+});
+
+renderer.setSize(window.innerWidth, window.innerHeight); // set the size of the renderer to the window size
+document.body.appendChild(renderer.domElement); // append the renderer's DOM element to the body
+
+renderer.setClearColor(0x000000, 0); // set the renderer's background color to clear color
+
+
+renderer.render(scene, camera); // render the scene with the camera
 renderer.setSize( window.innerWidth, window.innerHeight );
 document.body.appendChild( renderer.domElement )
 
@@ -27,7 +37,7 @@ camera.position.z = 5;
 function animate() {
   requestAnimationFrame(animate); //request animation frame to animate
   cube.rotation.x += 0.01;
-cube.rotation.y += 0.01;
+  cube.rotation.y += 0.01;
   renderer.render(scene, camera); //render the scene with the camera
 }
 
