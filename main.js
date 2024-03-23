@@ -13,6 +13,7 @@ const renderer = new THREE.WebGLRenderer({
 
 renderer.setSize(window.innerWidth, window.innerHeight); // set the size of the renderer to the window size
 //renderer.setClearColor(0x000000, 0); // set the renderer's background color to clear color
+//renderer.setClearColor(0x000000, 0); // set the renderer's background color to clear color
 renderer.setSize( window.innerWidth, window.innerHeight ); //set the size of the renderer to the window size
 renderer.setPixelRatio(window.devicePixelRatio); //set pixel ratio to device pixel ratio
 document.body.appendChild( renderer.domElement ) //append the renderer's DOM element to the body
