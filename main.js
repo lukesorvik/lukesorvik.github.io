@@ -62,8 +62,7 @@ function addStar() {
 
 Array(200).fill().forEach(addStar); //create array of 200, call to create 200 stars in the scene
 
-
-const spaceTexture = new THREE.TextureLoader().load('../assets/space.jpg'); //load the space texture
+const spaceTexture = new THREE.TextureLoader().load('space.jpg'); //load the space texture with a relative path
 scene.background = spaceTexture; //set the scene's background to the space texture
 
 function moveCamera() {
