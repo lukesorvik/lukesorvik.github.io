@@ -13,6 +13,7 @@ const renderer = new THREE.WebGLRenderer({
 renderer.setPixelRatio(window.devicePixelRatio); //set pixel ratio to device pixel ratio
 renderer.setSize(window.innerWidth, window.innerHeight); //set size of renderer to window size, full screen canvas
 camera.position.setZ(30); //set camera position to 30 units back
+camera.position.setX(-3);
 
 renderer.render(scene, camera); //render the scene with the camera
 
