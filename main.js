@@ -1,31 +1,33 @@
 import './style.css' //import the css file
-import * as THREE from 'three' //import the three.js library
+import * as THREE from 'three'; //import the three.js library
 
-const scene = new THREE.Scene(); // Create a scene
-const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000); // Create a camera
-//(fov, aspect ratio based off users browser window, cutoff for how close objects are visible near, far)
+const scene = new THREE.Scene();
+const camera = new THREE.PerspectiveCamera( 75, window.innerWidth / window.innerHeight, 0.1, 1000 );
 
-// Create a renderer, render the canvas with the id of 'bg'
-const renderer = new THREE.WebGLRenderer({
-    canvas: document.querySelector('#bg'),
-});
+const renderer = new THREE.WebGLRenderer();
+renderer.setSize( window.innerWidth, window.innerHeight );
+document.body.appendChild( renderer.domElement )
+
 
 renderer.setPixelRatio(window.devicePixelRatio); //set pixel ratio to device pixel ratio
 renderer.setSize(window.innerWidth, window.innerHeight); //set size of renderer to window size, full screen canvas
+
 camera.position.setZ(30); //set camera position to 30 units back
-camera.position.setX(-3);
+
 
 renderer.render(scene, camera); //render the scene with the camera
 
-const geometry = new THREE.TorusGeometry(10, 3, 16, 100); //create a torus geometry
-const material = new THREE.MeshStandardMaterial({ color: 0xFF6347, wireframe : true }); //create a material with a color
-const torus = new THREE.Mesh(geometry, material); //create a mesh with the geometry and material
+const geometry = new THREE.BoxGeometry( 1, 1, 1 );
+const material = new THREE.MeshBasicMaterial( { color: 0x00ff00 } );
+const cube = new THREE.Mesh( geometry, material );
+scene.add( cube );
 
-scene.add(torus); //add the torus to the scene
-
+camera.position.z = 5;
 //we want to set up a recursive function to set up infinite loop to animate automatically
 function animate() {
   requestAnimationFrame(animate); //request animation frame to animate
+  cube.rotation.x += 0.01;
+cube.rotation.y += 0.01;
   renderer.render(scene, camera); //render the scene with the camera
 }
 
