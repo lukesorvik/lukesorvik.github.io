@@ -6,16 +6,14 @@ canvas {
   left: 0;
 }
 
-
 :root {
   --dark-bg: rgba(15, 15, 15, 0.95);
-  --spacing: 350px;
+  --spacing: 10vw; /*global variable for spacing, vw = viewport width so it works w any browser */
 
   font-family: brandon-grotesque, sans-serif;
   font-weight: 400;
   font-style: normal;
 }
-
 
 main {
   width: 100vw;
@@ -24,8 +22,8 @@ main {
   position: absolute;
   width: 100%;
   margin: 0px auto;
-  padding: 120px 0px;
-  
+  padding: 10vw 0px; /* Adjust the value as needed */
+
   display: grid;
   grid-template-columns: repeat(12, 1fr);
 }
@@ -42,45 +40,41 @@ canvas {
   left: 0;
 }
 
+header {
+  background: rgba(15, 15, 15, 0.0);
+  color: rgb(255, 255, 255);
+  text-shadow: 1px 1px 2px red, 0 0 1em blue, 0 0 0.2em blue;
+  grid-column: 2 / span 5;
+  font-size: 2.5vw; /* Adjust the value as needed */
+  padding: 2vw; /* Adjust the value as needed */
+  margin-bottom: var(--spacing);
+}
 
+section {
+  grid-column: 2 / 8;
+  padding: 1vw; /* Adjust the value as needed */
+  background: rgba(15, 15, 15, 0.8);
+  font-size: 1.25vw; /* Adjust the value as needed */
+  line-height: 1.5;
+  margin-bottom: var(--spacing);
+}
 
-  header {
-    background: rgba(15, 15, 15, 0.0); /* Adjust the alpha value (0.8) to make it more transparent */
-    color: rgb(255, 255, 255);
-    text-shadow: 1px 1px 2px red, 0 0 1em blue, 0 0 0.2em blue; /*found off css presets */
-    grid-column: 2 / span 5;
-    font-size: 2.5rem;
-    padding: 2rem;
-    margin-bottom: var(--spacing);
-  }
+blockquote {
+  margin: 0;
+  padding: 0;
+  grid-column: 2 / span 9;
+  margin-bottom: var(--spacing);
+}
 
-  section {
-    grid-column: 2 / 8;
-    padding: 1rem;
-    background: rgba(15, 15, 15, 0.8); /* Adjust the alpha value (0.8) to make it more transparent */
-    font-size: 1.25rem;
-    line-height: 1.5;
-    margin-bottom: var(--spacing);
-  }
+blockquote p {
+  color: rgb(255, 255, 255);
+  background-color: transparent;
+  font-size: 4vw; /* Adjust the value as needed */
+  display: inline;
+  line-height: 1;
+  text-shadow: 1px 1px 2px red, 0 0 1em blue, 0 0 0.2em blue;
+}
 
-  blockquote {
-    margin: 0;
-    padding: 0;
-    grid-column: 2 / span 9;
-    margin-bottom: var(--spacing);
-  }
-
-  blockquote p {
-    color: rgb(255, 255, 255);
-    background-color: transparent;
-    font-size: 4rem;
-    display: inline;
-    line-height: 1;
-    /*text-shadow: -2px -2px 0 white, 1px -1px 0 white, -1px 1px 0 white, 1px 1px 0 white;*/
-    text-shadow: 1px 1px 2px red, 0 0 1em blue, 0 0 0.2em blue;
-    /*horizontal and vertical offset of shadow, */
-  }
-
-  .left {
-    grid-column: 6 / 12;
-  }
+.left {
+  grid-column: 6 / 12;
+}
