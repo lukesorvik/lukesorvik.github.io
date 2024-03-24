@@ -51,9 +51,9 @@ header {
 }
 
 section {
-  grid-column: 2 / 8;
+  grid-column: 2 / 9;
   padding: 1vw; /* Adjust the value as needed */
-  background: rgba(15, 15, 15, 0.8);
+  background: rgba(15, 15, 15, 0.7);
   font-size: 1.25vw; /* Adjust the value as needed */
   line-height: 1.5;
   margin-bottom: var(--spacing);
@@ -76,5 +76,5 @@ blockquote p {
 }
 
 .left {
-  grid-column: 6 / 12;
+  grid-column: 4 / 12;
 }
