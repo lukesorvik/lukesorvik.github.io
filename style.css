@@ -1,5 +1,6 @@
 @import url("https://use.typekit.net/jmk3xov.css");
 
+/* Styles for all devices */
 canvas {
   position: fixed;
   top: 0;
@@ -8,8 +9,7 @@ canvas {
 
 :root {
   --dark-bg: rgba(15, 15, 15, 0.95);
-  --spacing: 10vw; /*global variable for spacing, vw = viewport width so it works w any browser */
-
+  --spacing: 10vw;
   font-family: brandon-grotesque, sans-serif;
   font-weight: 400;
   font-style: normal;
@@ -22,7 +22,7 @@ main {
   position: absolute;
   width: 100%;
   margin: 0px auto;
-  padding: 10vw 0px; /* Adjust the value as needed */
+  padding: 10vw 0px;
 
   display: grid;
   grid-template-columns: repeat(12, 1fr);
@@ -45,16 +45,16 @@ header {
   color: rgb(255, 255, 255);
   text-shadow: 1px 1px 2px red, 0 0 1em blue, 0 0 0.2em blue;
   grid-column: 2 / span 5;
-  font-size: 2.5vw; /* Adjust the value as needed */
-  padding: 2vw; /* Adjust the value as needed */
+  font-size: 2.5vw;
+  padding: 2vw;
   margin-bottom: var(--spacing);
 }
 
 section {
   grid-column: 2 / 9;
-  padding: 1vw; /* Adjust the value as needed */
+  padding: 1vw;
   background: rgba(15, 15, 15, 0.7);
-  font-size: 1.25vw; /* Adjust the value as needed */
+  font-size: 1.25vw;
   line-height: 1.5;
   margin-bottom: var(--spacing);
 }
@@ -69,7 +69,7 @@ blockquote {
 blockquote p {
   color: rgb(255, 255, 255);
   background-color: transparent;
-  font-size: 4vw; /* Adjust the value as needed */
+  font-size: 4vw;
   display: inline;
   line-height: 1;
   text-shadow: 1px 1px 2px red, 0 0 1em blue, 0 0 0.2em blue;
@@ -77,4 +77,26 @@ blockquote p {
 
 .left {
   grid-column: 4 / 12;
+}
+
+/* Styles for phone browsers */
+@media only screen and (max-width: 600px) {
+  /* Add your styles for phone browsers here */
+  main {
+    padding: 5vw 0px;
+  }
+
+  header {
+    font-size: 5vw;
+    padding: 4vw;
+  }
+
+  section {
+    font-size: 3vw;
+    padding: 2vw;
+  }
+
+  blockquote p {
+    font-size: 8vw;
+  }
 }
