@@ -1,7 +1,6 @@
 import './style.css' //import the css file
 import * as THREE from 'three'; //import the three.js library
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls'; //import the orbit controls from three.js
-import { Terrain } from "./js/Terrain";
 import imgUrl from './space.jpg' //have to import the path for the image, since once we build it will be a different url
 
 
