@@ -112,6 +112,10 @@ blockquote p {
   blockquote p {
     font-size: 8vw;
   }
+
+  nav {
+    font-size: 2vw;
+  }
 }
 
 
@@ -140,6 +144,7 @@ a:active {
   text-decoration: underline;
 }
 
+/* for the navbar */
 .navbar {
   display: flex;
   flex-direction: column;
