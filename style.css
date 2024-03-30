@@ -2,6 +2,10 @@
 
 /* Styles for all devices */
 
+ /* Add this CSS to enable smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
 
 :root {
   --dark-bg: rgba(15, 15, 15, 0.95);
@@ -34,6 +38,19 @@ canvas {
   position: fixed;
   top: 0;
   left: 0;
+}
+
+/*for the nav bar*/
+nav {
+  background: transparent;
+  display: flex;
+  justify-content: start;
+  color: rgb(255, 255, 255);
+  text-shadow: 2px 1px 2px rgb(255, 255, 255), 0 0 1em blue, 0 0 0.2em blue;
+  font-size: 1.5vw;
+  position: fixed;
+  top: 0;
+  width: 100%;
 }
 
 header {
@@ -95,4 +112,30 @@ blockquote p {
   blockquote p {
     font-size: 8vw;
   }
+}
+
+
+
+a:link {
+  color: green;
+  background-color: transparent;
+  text-decoration: none;
+}
+
+a:visited {
+  color: rgb(98, 112, 235);
+  background-color: transparent;
+  text-decoration: none;
+}
+
+a:hover {
+  color: red;
+  background-color: transparent;
+  text-decoration: underline;
+}
+
+a:active {
+  color: yellow;
+  background-color: transparent;
+  text-decoration: underline;
 }
