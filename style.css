@@ -115,7 +115,7 @@ blockquote p {
 }
 
 
-
+/*code to change visited and hovering over links*/
 a:link {
   color: green;
   background-color: transparent;
@@ -139,3 +139,10 @@ a:active {
   background-color: transparent;
   text-decoration: underline;
 }
+
+.navbar {
+  display: flex;
+  flex-direction: column;
+}
+
+
