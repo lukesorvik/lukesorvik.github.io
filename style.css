@@ -114,23 +114,35 @@ blockquote p {
   }
 
   nav {
-    font-size: 2vw;
+    background: transparent;
+    display: flex;
+    justify-content: start;
+    color: rgb(255, 255, 255);
+    text-shadow: 2px 1px 2px rgb(255, 255, 255), 0 0 1em blue, 0 0 0.2em blue;
+    font-size: 3vw;
+    position: fixed;
+    top: 0;
+    width: 100%;
   }
 }
 
 
 /*code to change visited and hovering over links*/
+
 a:link {
   color: green;
   background-color: transparent;
   text-decoration: none;
 }
 
+
+
 a:visited {
   color: rgb(98, 112, 235);
   background-color: transparent;
   text-decoration: none;
 }
+
 
 a:hover {
   color: red;
