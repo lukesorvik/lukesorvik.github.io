@@ -130,7 +130,7 @@ blockquote p {
 /*code to change visited and hovering over links*/
 
 a:link {
-  color: green;
+  color: rgb(98, 112, 235);
   background-color: transparent;
   text-decoration: none;
 }
