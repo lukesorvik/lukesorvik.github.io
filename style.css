@@ -16,6 +16,10 @@ html {
   overflow-x: hidden; /* Prevent horizontal scrolling */
 }
 
+body {
+  background: black;
+} /*used to set background color before js loads so no white screen*/
+
 main {
   color: white;
   z-index: 99;
