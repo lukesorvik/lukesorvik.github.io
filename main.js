@@ -3,14 +3,7 @@ import * as THREE from 'three'; //import the three.js library
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls'; //import the orbit controls from three.js
 
 
-const scene = new THREE.Scene(); //create a scene
-const camera = new THREE.PerspectiveCamera( 75, window.innerWidth / window.innerHeight, 0.1, 1000 ); //create a camera with perspective projection
-
-//create a renderer, with a canvas element
-const renderer = new THREE.WebGLRenderer({
-  canvas: document.querySelector('#bg'),
-});
-
+let camera, controls, scene, renderer, effect;
 
 function addStar() {
   const geometry = new THREE.OctahedronGeometry(Math.random() * 0.5 + 0.1, 0); //create a sphere geometry with random size
@@ -22,7 +15,6 @@ function addStar() {
   star.position.set(x, y, z); //set the position of the star
   scene.add(star); //add the star to the scene
 }
-
 
 function onWindowResize(){
 
@@ -58,6 +50,10 @@ function animate() {
 
   
 function main() {
+  
+  scene = new THREE.Scene(); //create a scene
+  camera = new THREE.PerspectiveCamera( 75, window.innerWidth / window.innerHeight, 0.1, 1000 ); //create a camera with perspective projection
+  renderer = new THREE.WebGLRenderer();
 
   renderer.setSize(window.innerWidth, window.innerHeight); // set the size of the renderer to the window size
   renderer.setSize( window.innerWidth, window.innerHeight ); //set the size of the renderer to the window size
@@ -67,12 +63,10 @@ function main() {
   camera.position.z = 10; //set the camera's z position to 5
   camera.position.x = 0; //set the camera's z position to 5
   
-  //create an ambient light
   const ambientLight = new THREE.AmbientLight(0xffffff, 10); //ambient light, with color white and intensity 0.5
   scene.add(ambientLight);
 
-  //create an orbit controls, allows us to move around the scene
-  const controls = new OrbitControls(camera, renderer.domElement); //create orbit controls with camera and renderer's DOM element
+  controls = new OrbitControls(camera, renderer.domElement); //create orbit controls with camera and renderer's DOM element
 
   Array(500).fill().forEach(addStar); //create array of 200, call to create 200 stars in the scene
   
