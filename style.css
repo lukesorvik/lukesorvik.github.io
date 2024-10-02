@@ -91,7 +91,6 @@ blockquote p {
 .left {
   grid-column: 4 / 10;
 }
-
 /* Styles for phone browsers */
 @media only screen and (max-width: 600px) {
   /* Add your styles for phone browsers here */
@@ -114,15 +113,7 @@ blockquote p {
   }
 
   nav {
-    background: transparent;
-    display: flex;
-    justify-content: start;
-    color: rgb(255, 255, 255);
-    text-shadow: 2px 1px 2px rgb(255, 255, 255), 0 0 1em blue, 0 0 0.2em blue;
-    font-size: 3vw;
-    position: fixed;
-    top: 0;
-    width: 100%;
+    display: none !important; /* Hide the nav bar on phone browsers */
   }
 }
 
